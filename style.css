@@ -14,3 +14,14 @@
   background-color: #422AD5;
   color: white;
 }
+
+#mobile-nav{
+  transition: 0.5s all ease;
+}
+
+.defaultPosition{
+  transform: translateX(220px);
+}
+.expand{
+  transform: translateX(0px);
+}

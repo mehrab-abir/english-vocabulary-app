@@ -27,20 +27,30 @@
 
             <!-- menu items  -->
             <div class="hidden md:flex justify-between items-center gap-3">
-                <a href="#" class="btn border border-[#422AD5] text-[#422AD5] bg-[#BADEFF26] hover:bg-[#422AD530]"><i class="fa-solid fa-circle-question"></i> FAQ</a>
-                <a href="#" class="btn border border-[#422AD5] text-[#422AD5] bg-[#BADEFF26] hover:bg-[#422AD530]"><i class="fa-solid fa-book"></i> Learn</a>
+                <a href="#faq" class="btn border border-[#422AD5] text-[#422AD5] bg-[#BADEFF26] hover:bg-[#422AD530]"><i class="fa-solid fa-circle-question"></i> FAQ</a>
+                <a href="#learn" class="btn border border-[#422AD5] text-[#422AD5] bg-[#BADEFF26] hover:bg-[#422AD530]"><i class="fa-solid fa-book"></i> Learn</a>
                 <a href="#" class="btn border border-[#422AD5] text-[#422AD5] bg-[#BADEFF26] hover:bg-[#422AD530]"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
 
                 
             </div>
             <!-- mobile menu button  -->
-            <div class="flex flex-col hover:cursor-pointer md:hidden">
+            <div class="flex flex-col hover:cursor-pointer md:hidden" id="mobile-nav-btn">
                 <span class="w-8 h-1 bg-black mt-1"></span>
                 <span class="w-8 h-1 bg-black mt-1"></span>
                 <span class="w-8 h-1 bg-black mt-1"></span>
             </div>
         </nav>
     </header>
+
+    <!-- navbar in mobile device -->
+    <div id="mobile-nav" class="w-[200px] h-[100vh] p-5 bg-[#422AD5] absolute top-0 right-0 defaultPosition">
+        <span class="absolute right-8 text-5xl font-semibold text-white cursor-pointer" id="nav-close-btn">&times;</span>
+        <div class="flex flex-col justify-center text-white mt-8">
+            <a href="#faq" class="mt-3"><i class="fa-solid fa-circle-question"></i> FAQ</a>
+            <a href="#learn" class="mt-3"><i class="fa-solid fa-book"></i> Learn</a>
+            <a href="" class="mt-3"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+        </div>
+    </div>
 
     <!-- banner section  -->
     <main>
@@ -52,7 +62,7 @@
                 <br>
                 <input type="password" placeholder="Password" class="border border-gray-400 mt-4 p-2 rounded-lg w-[70%] md:w-[40%]">
                 <br>
-                <button class="btn btn-primary mt-5">Get Started</button>
+                <button onclick="alert('You may start learning now')" class="btn btn-primary mt-5">Get Started</button>
             </div>
 
             <div class="banner-img">
@@ -63,7 +73,7 @@
     <!-- banner section ends here  -->
 
     <!-- learn words section starts-->
-    <section class="w-[90%] mx-auto flex flex-col items-center justify-center my-9">
+    <section class="w-[90%] mx-auto flex flex-col items-center justify-center my-9" id="learn">
         <h1 class="text-3xl font-bold"><span class="text-[#00BCFF]">Let's</span> Learn Vocabularies</h1>
         <div class="lesson-buttons flex flex-wrap items-center justify-center gap-4 my-6">
 
@@ -130,7 +140,7 @@
 
 
     <!-- frequently asked questions section -->
-    <section class="w-[90%] mx-auto my-20">
+    <section class="w-[90%] mx-auto my-20" id="faq">
         <h1 class="text-3xl font-bold text-center mb-7"><span class="text-[#00BCFF] mb-8">Frequently</span> Asked Questions</h1>
         <div>
             <div class="question flex flex-col card mb-4 bg-[#F8F8F8] px-6 py-3 hover:cursor-pointer">

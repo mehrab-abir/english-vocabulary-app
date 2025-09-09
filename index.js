@@ -61,7 +61,7 @@ function displayWord(words){
         wordContainer.innerHTML = `
             <div class="col-span-3 py-5 flex flex-col justify-center items-center">
                 <img src="./assets/alert-error.png" alt="" class="mb-4" />
-                <p class="font-bangla">এই সেকশনে এখনো শব্দ আপলোড করা হয় নি</p>
+                <p class="font-bangla">এই সেকশনে এখনো শব্দ যোগ করা হয় নি</p>
                 <h1 class="text-xl font-bold mt-3 font-bangla">পরবর্তী লেসনে ক্লিক করুন</h1>
             </div>
         `
@@ -135,7 +135,7 @@ const synonymWords =(synonyms) =>{
     }
 
     const wordElements = synonyms.map((eachWord)=>{
-        return `<span class="btn mt-1">${eachWord}</span>`;
+        return `<span class="btn mt-2 mr-2">${eachWord}</span>`;
     })
     return wordElements.join(" ");
 
@@ -199,3 +199,19 @@ function pronounceWord(word) {
   utterance.lang = "en-EN"; // English
   window.speechSynthesis.speak(utterance);
 }
+
+
+//navbar in mobile device
+const mobileNavbar = document.getElementById("mobile-nav");
+const mobileNavBtn = document.getElementById("mobile-nav-btn");
+const navCloseBtn = document.getElementById("nav-close-btn");
+
+
+mobileNavBtn.addEventListener('click',()=>{
+    mobileNavbar.classList.remove('defaultPosition');
+    mobileNavbar.classList.add('expand');
+})
+navCloseBtn.addEventListener("click",()=>{
+    mobileNavbar.classList.add('defaultPosition');
+    mobileNavbar.classList.remove('expand');
+})
