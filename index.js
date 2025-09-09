@@ -84,7 +84,7 @@ function displayWord(words){
                 ${/*word details and speaker button*/ ''}
                 <div class="flex justify-between w-full mt-10">
                     <button onclick="loadWordDetail(${word.id})" class="btn bg-[#BADEFF40]"><i class="fa-solid fa-circle-info"></i></button>
-                    <button class="btn bg-[#BADEFF40]"><i class="fa-solid fa-volume-high"></i></button>
+                    <button onclick="pronounceWord('${word.word}')" class="btn bg-[#BADEFF40]"><i class="fa-solid fa-volume-high"></i></button>
                 </div>
             </div>
         `
@@ -173,9 +173,29 @@ searchBtn.addEventListener('click',()=>{
         const allWords = data.data;
         const filterWords = allWords.filter((wordDetails)=> wordDetails.word.toLowerCase().includes(searchValue));
         // console.log(filterWords);
-        
-        displayWord(filterWords); 
 
-        /* this function is implemented to display words from an array of obj in dom, so can be used for this purpose as well */
+        if(filterWords.length > 0){
+            displayWord(filterWords);
+
+            /* this function has been implemented to display words from an array of obj in dom, so can be used for this purpose as well */
+        }
+        else{
+            const wordContainer = document.getElementById("word-container");
+            wordContainer.innerHTML = '';
+
+            wordContainer.innerHTML = `
+            <div class="col-span-3 py-5 flex flex-col justify-center items-center">
+                <img src="./assets/alert-error.png" alt="" class="mb-4" />
+                <p class="font-bangla">Word not found. Try something else.</p>
+            </div>
+        `
+        }
     });
 })
+
+//text to speach, word pronunciation functionality
+function pronounceWord(word) {
+  const utterance = new SpeechSynthesisUtterance(word);
+  utterance.lang = "en-EN"; // English
+  window.speechSynthesis.speak(utterance);
+}
