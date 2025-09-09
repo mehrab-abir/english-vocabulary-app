@@ -135,7 +135,7 @@ const synonymWords =(synonyms) =>{
     }
 
     const wordElements = synonyms.map((eachWord)=>{
-        return `<span class="btn">${eachWord}</span>`;
+        return `<span class="btn mt-1">${eachWord}</span>`;
     })
     return wordElements.join(" ");
 
