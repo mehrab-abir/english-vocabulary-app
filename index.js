@@ -207,11 +207,9 @@ const mobileNavBtn = document.getElementById("mobile-nav-btn");
 const navCloseBtn = document.getElementById("nav-close-btn");
 
 
-mobileNavBtn.addEventListener('click',()=>{
-    mobileNavbar.classList.remove('defaultPosition');
-    mobileNavbar.classList.add('expand');
-})
-navCloseBtn.addEventListener("click",()=>{
-    mobileNavbar.classList.add('defaultPosition');
-    mobileNavbar.classList.remove('expand');
-})
+mobileNavBtn.addEventListener('click', () => {
+  mobileNavbar.classList.remove('translate-x-full');
+});
+navCloseBtn.addEventListener('click', () => {
+  mobileNavbar.classList.add('translate-x-full');
+});
