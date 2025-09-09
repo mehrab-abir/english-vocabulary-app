@@ -17,10 +17,5 @@
 
 #mobile-nav{
   transition: 0.5s all ease;
-  /* transform: translateX(100%); */
   z-index: 11111;
-}
-
-.expand{
-  transform: translateX(200);
 }
