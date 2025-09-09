@@ -57,7 +57,8 @@ function displayWord(words){
 
     if(words.length == 0){
         wordContainer.innerHTML = `
-            <div class="col-span-3 py-7">
+            <div class="col-span-3 py-5 flex flex-col justify-center items-center">
+                <img src="./assets/alert-error.png" alt="" class="mb-4" />
                 <p>এই সেকশনে এখনো শব্দ আপলোড করা হয় নি</p>
                 <h1 class="text-xl font-bold mt-3">পরবর্তী লেসনে ক্লিক করুন</h1>
             </div>
@@ -69,12 +70,12 @@ function displayWord(words){
         // console.log(word);
         const wordCard = document.createElement("div");
         wordCard.innerHTML = `
-            <div class="word-card flex flex-col items-center justify-center bg-white px-8 py-10 shadow-md rounded-lg">
+            <div class="word-card h-full flex flex-col items-center justify-center bg-white px-8 py-10 shadow-md rounded-lg">
 
                 <div>
                     <h1 class="text-xl font-bold">${word.word}</h1>
                     <p class="my-4">Meaning/Pronunciation</p>
-                    <h1 class="text-xl">${word.meaning}/(${word.pronunciation})</h1>
+                    <h1 class="text-xl">${word.meaning ? word.meaning : "not found"}/(${word.pronunciation ? word.pronunciation : "not found"})</h1>
                 </div>
                 
                 <div class="flex justify-between w-full mt-10">
