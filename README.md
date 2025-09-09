@@ -1,2 +1,2 @@
 # English Janala- english-vocabulary-app
-An English vocabulary web application - made using HTML, Tailwind CSS, JavaScript
+An English to Bengali vocabulary web application - made using HTML, Tailwind CSS, JavaScript
