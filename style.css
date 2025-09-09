@@ -9,3 +9,8 @@
 .font-bangla {
   font-family: "Hind Siliguri", sans-serif;
 }
+
+.activeLesson{
+  background-color: #422AD5;
+  color: white;
+}
