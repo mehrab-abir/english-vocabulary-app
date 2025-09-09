@@ -43,6 +43,8 @@ loadLevels();
 
 //load words
 function loadWord(level_no){
+    manageLoading(true);  //right after clicking a lesson button, the loading bars will appear
+
     fetch(`https://openapi.programming-hero.com/api/level/${level_no}`)
     .then(response => response.json())
     .then(data => {
@@ -51,7 +53,7 @@ function loadWord(level_no){
 }
 
 function displayWord(words){
-    // console.log(words);
+    // console.log(words); //array of objects
     const wordContainer = document.getElementById("word-container");
     wordContainer.innerHTML = '';
 
@@ -59,10 +61,11 @@ function displayWord(words){
         wordContainer.innerHTML = `
             <div class="col-span-3 py-5 flex flex-col justify-center items-center">
                 <img src="./assets/alert-error.png" alt="" class="mb-4" />
-                <p>এই সেকশনে এখনো শব্দ আপলোড করা হয় নি</p>
-                <h1 class="text-xl font-bold mt-3">পরবর্তী লেসনে ক্লিক করুন</h1>
+                <p class="font-bangla">এই সেকশনে এখনো শব্দ আপলোড করা হয় নি</p>
+                <h1 class="text-xl font-bold mt-3 font-bangla">পরবর্তী লেসনে ক্লিক করুন</h1>
             </div>
         `
+        manageLoading(false); //when the message with appear, the loading bars will disappear
         return;
     }
 
@@ -75,15 +78,104 @@ function displayWord(words){
                 <div>
                     <h1 class="text-xl font-bold">${word.word}</h1>
                     <p class="my-4">Meaning/Pronunciation</p>
-                    <h1 class="text-xl">${word.meaning ? word.meaning : "not found"}/(${word.pronunciation ? word.pronunciation : "not found"})</h1>
+                    <h1 class="text-xl font-bangla">${word.meaning ? word.meaning : "not found"}/(${word.pronunciation ? word.pronunciation : "not found"})</h1>
                 </div>
                 
+                ${/*word details and speaker button*/ ''}
                 <div class="flex justify-between w-full mt-10">
-                    <button class="btn bg-[#BADEFF40]"><i class="fa-solid fa-circle-info"></i></button>
+                    <button onclick="loadWordDetail(${word.id})" class="btn bg-[#BADEFF40]"><i class="fa-solid fa-circle-info"></i></button>
                     <button class="btn bg-[#BADEFF40]"><i class="fa-solid fa-volume-high"></i></button>
                 </div>
             </div>
         `
         wordContainer.append(wordCard);
+        manageLoading(false); //when the words are done loading, the loading bar will disappear
     })
 }
+
+const loadWordDetail = async(id) =>{
+    const response = await fetch(`https://openapi.programming-hero.com/api/word/${id}`);
+    const details = await response.json();
+
+    displayDetailModal(details.data);
+}
+
+
+function displayDetailModal(details){
+    // console.log(details);
+    const wordDetailsContainer = document.getElementById("details-container");
+    wordDetailsContainer.innerHTML = `
+            <h1 class="text-2xl font-bold">${details.word} (<i class="fa-solid fa-microphone-lines"></i> :<span class="font-bangla">${details.pronunciation} </span>)</h1>
+
+            <div class="meaning my-5">
+                <p class="text-lg font-bold">Meaning</p>
+                <p class="font-bangla">${details.meaning}</p>
+            </div>
+
+            <div class="example my-5">
+                <p class="text-lg font-bold">Example</p>
+                <p>${details.sentence}</p>
+            </div>
+
+            <div class="synonyms my-5">
+                <p class="mb-2 font-bangla text-xl font-bold">সমার্থক শব্দ গুলো</p>
+                <div>
+                    ${synonymWords(details.synonyms)}
+                </div>
+            </div>
+    `
+    document.getElementById("word_details_modal").showModal();
+}
+
+//function for synonym words
+const synonymWords =(synonyms) =>{
+
+    if(synonyms.length == 0){
+        return `N/A`;
+    }
+
+    const wordElements = synonyms.map((eachWord)=>{
+        return `<span class="btn">${eachWord}</span>`;
+    })
+    return wordElements.join(" ");
+
+    /*because map() returns an array of all words inside a span tag, we need the words with span tag as string so the whole string gets placed inside the synonym's div as string wrapped in a span tag, which then looks like normal html code */
+}
+
+
+//managin loading bars
+
+//right after clicking a lesson button, the loading bars will appear and word container will disappear, then after the word-container is fully loaded, the loading bars will be hidden
+const manageLoading = (status) =>{
+    if(status){
+        document.querySelector('.loading-bars').classList.remove('hidden');
+        document.getElementById('word-container').classList.add('hidden');
+    }
+    else{
+        document.querySelector('.loading-bars').classList.add('hidden');
+        document.getElementById('word-container').classList.remove('hidden');
+    }
+}
+
+
+//search word functionality
+const searchBtn = document.getElementById("search-btn");
+
+searchBtn.addEventListener('click',()=>{
+    const searchBox = document.querySelector('.search-box');
+    const searchValue = searchBox.value.trim().toLowerCase();
+
+    // console.log(searchValue)
+
+    fetch("https://openapi.programming-hero.com/api/words/all")
+    .then(response => response.json())
+    .then(data => {
+        const allWords = data.data;
+        const filterWords = allWords.filter((wordDetails)=> wordDetails.word.toLowerCase().includes(searchValue));
+        // console.log(filterWords);
+        
+        displayWord(filterWords); 
+
+        /* this function is implemented to display words from an array of obj in dom, so can be used for this purpose as well */
+    });
+})

@@ -22,7 +22,7 @@
             <div class="flex justify-between items-center">
                 <h2 class="text-lg font-bold">English</h2>
                 <img src="./assets/logo.png" alt="">
-                <h2 class="text-lg">জানালা</h2>
+                <h2 class="text-lg font-bangla">জানালা</h2>
             </div>
 
             <!-- menu items  -->
@@ -47,7 +47,7 @@
         <div class="w-[90%] mx-auto flex flex-col-reverse md:flex-row justify-between items-center gap-10 my-9">
             <div class="banner-content text-center md:text-left">
                 <h1 class="text-2xl font-bold"><span class="text-[#00BCFF]">English</span> is Easy!!</h1>
-                <p class="my-5 md:w-[70%]">আজ থেকেই আপনার ভাষা শেখার যাত্রা শুরু করুন। আপনি যদি নতুন হন অথবা আপনার দক্ষতা বাড়াতে চান, আমাদের Interactive Lessons আপনাকে নিয়ে যাবে অন্য একটি Level এ</p>
+                <p class="my-5 md:w-[70%] font-bangla">আজ থেকেই আপনার ভাষা শেখার যাত্রা শুরু করুন। আপনি যদি নতুন হন অথবা আপনার দক্ষতা বাড়াতে চান, আমাদের Interactive Lessons আপনাকে নিয়ে যাবে অন্য একটি Level এ</p>
                 <input type="text" placeholder="Enter Your Name" class="border border-gray-400 mt-4 p-2 rounded-lg w-[70%] md:w-[40%]">
                 <br>
                 <input type="password" placeholder="Password" class="border border-gray-400 mt-4 p-2 rounded-lg w-[70%] md:w-[40%]">
@@ -71,10 +71,23 @@
             <!-- <button class="btn border border-[#422AD5] text-[#422AD5] bg-white hover:bg-[#422AD5] hover:text-white"><i class="fa-solid fa-book"></i> Lesson-1</button> -->
         </div>
 
+        <div class="join mb-4">
+            <div>
+                <label class="input join-item">
+                    <input class="search-box" type="text" placeholder="search word" required />
+                </label>
+            </div>
+            <button class="btn btn-primary join-item" id="search-btn">Search</button>
+        </div>
+
+        <div class="flex justify-center items-center">
+            <span class="loading loading-bars loading-xl hidden"></span>
+        </div>
+
         <div class="py-10 px-4 bg-[#F8F8F8] w-[100%] text-center grid grid-cols-1 md:grid-cols-3 gap-7" id="word-container">
             <div class="col-span-3 py-7">
-                <p>আপনি এখনো কোন Lesson Select করেন নি</p>
-                <h1 class="text-3xl font-bold mt-3">একটি Lesson Select করুন।</h1>
+                <p class="font-bangla">আপনি এখনো কোন Lesson Select করেন নি</p>
+                <h1 class="text-3xl font-bold mt-3 font-bangla">একটি Lesson Select করুন।</h1>
             </div>
             
             <!-- word card -->
@@ -93,7 +106,26 @@
             </div> -->
 
         </div>
-    </section>    
+    </section>
+    <!-- Open the modal using ID.showModal() method -->
+    <!-- <button class="btn" onclick="my_modal_5.showModal()">open modal</button> -->
+    <dialog id="word_details_modal" class="modal modal-bottom sm:modal-middle">
+        <div class="modal-box">
+
+            <!-- word details container -->
+            <div id="details-container">
+                
+            </div>
+
+
+            <div class="modal-action">
+            <form method="dialog">
+                <!-- if there is a button in form, it will close the modal -->
+                <button class="btn">Close</button>
+            </form>
+            </div>
+        </div>
+    </dialog>   
     <!-- learn words section ends -->
 
 
@@ -150,9 +182,9 @@
                 <div class="flex items-center mb-3 translate-x-[25%] md:translate-x-[0%]">
                     <h2 class="text-lg font-bold">English</h2>
                     <img src="./assets/logo.png" alt="">
-                    <h2 class="text-lg">জানালা</h2>
+                    <h2 class="text-lg font-bangla">জানালা</h2>
                 </div>
-                <h1 class="text-xl text-[#62748E] my-5">ইংরেজি শিখুন সহজে</h1>
+                <h1 class="text-xl text-[#62748E] my-5 font-bangla">ইংরেজি শিখুন সহজে</h1>
                 <p class="text-[#62748E]">Providing ED-Tech Applications since 2025</p>
             </div>
 
