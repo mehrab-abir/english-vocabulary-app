@@ -213,3 +213,42 @@ mobileNavBtn.addEventListener('click', () => {
 navCloseBtn.addEventListener('click', () => {
   mobileNavbar.classList.add('translate-x-full');
 });
+
+
+//frequently asked question section
+/* const q1 = document.getElementById("q1");
+const ans1 = document.getElementById("ans1");
+const plus1 = document.getElementById("plus1");
+
+q1.addEventListener('click',function(){
+    ans1.classList.toggle("max-h-0");     
+    ans1.classList.toggle("max-h-40");
+    
+    if(plus1.innerText === "+"){
+        plus1.innerText = "-";
+    }
+    else{
+        plus1.innerText = "+";
+    }
+}) */
+
+const questions = document.querySelectorAll(".question");
+// console.log(questions)
+
+questions.forEach(question =>{
+    question.addEventListener('click',(event)=>{
+    //    console.log(event.currentTarget.children[1])
+        const answer = event.currentTarget.children[1];
+        answer.classList.toggle("max-h-0");     
+        answer.classList.toggle("max-h-40");
+
+        const plus = event.currentTarget.children[0].children[1];
+
+        if(plus.innerText === "+"){
+            plus.innerText = "-";
+        }
+        else{
+            plus.innerText = "+";
+        }
+    })
+})
