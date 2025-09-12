@@ -235,6 +235,8 @@ q1.addEventListener('click',function(){
 const questions = document.querySelectorAll(".question");
 // console.log(questions)
 
+/*event.currentTarget catches the element that the listener is attached to (the .question div in this case). */
+
 questions.forEach(question =>{
     question.addEventListener('click',(event)=>{
     //    console.log(event.currentTarget.children[1])
