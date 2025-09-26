@@ -6,6 +6,6 @@ An English to Bengali vocabulary web application
 - TailWind CSS (+Daisy UI)
 - JavaScript
 
-* Data Loaded from API * 
+# Data loaded from API 
 
 ## Visit : https://mehrab-abir.github.io/english-vocabulary-app/
