@@ -206,12 +206,13 @@ const mobileNavbar = document.getElementById("mobile-nav");
 const mobileNavBtn = document.getElementById("mobile-nav-btn");
 const navCloseBtn = document.getElementById("nav-close-btn");
 
-
-mobileNavBtn.addEventListener('click', () => {
+mobileNavBtn.addEventListener('click', (event) => {
   mobileNavbar.classList.remove('translate-x-full');
+  event.currentTarget.classList.add('hidden');
 });
 navCloseBtn.addEventListener('click', () => {
   mobileNavbar.classList.add('translate-x-full');
+  mobileNavBtn.classList.remove('hidden');
 });
 
 
