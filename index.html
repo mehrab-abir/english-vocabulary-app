@@ -17,9 +17,9 @@
 <body class="font-poppins">
 
     <!-- header and navbar  -->
-    <header class="bg-[#BADEFF26] py-5">
+    <header class="bg-[#00BCFF] py-5 fixed w-full top-0 z-50">
         <nav class="flex justify-between items-center w-[90%] mx-auto">
-            <div class="flex justify-between items-center">
+            <div class="flex justify-between items-center text-white">
                 <h2 class="text-lg font-bold">English</h2>
                 <img src="./assets/logo.png" alt="">
                 <h2 class="text-lg font-bangla">জানালা</h2>
@@ -27,17 +27,17 @@
 
             <!-- menu items  -->
             <div class="hidden md:flex justify-between items-center gap-3">
-                <a href="#faq" class="btn border border-[#422AD5] text-[#422AD5] bg-[#BADEFF26] hover:bg-[#00BCFF] hover:text-white"><i class="fa-solid fa-circle-question"></i> FAQ</a>
-                <a href="#learn" class="btn border border-[#422AD5] text-[#422AD5] bg-[#BADEFF26] hover:bg-[#00BCFF] hover:text-white"><i class="fa-solid fa-book"></i> Learn</a>
-                <a href="#" class="btn border border-[#422AD5] text-[#422AD5] bg-[#BADEFF26] hover:bg-[#00BCFF] hover:text-white"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+                <a href="#faq" class="btn border border-[#422AD5] text-[#ffffff] bg-[#BADEFF26] hover:bg-[#422AD5] hover:text-white"><i class="fa-solid fa-circle-question"></i> FAQ</a>
+                <a href="#learn" class="btn border border-[#422AD5] text-[#ffffff] bg-[#BADEFF26] hover:bg-[#422AD5] hover:text-white"><i class="fa-solid fa-book"></i> Learn</a>
+                <a href="#" class="btn border border-[#422AD5] text-[#ffffff] bg-[#BADEFF26] hover:bg-[#422AD5] hover:text-white"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
 
                 
             </div>
             <!-- mobile menu button  -->
             <div class="flex flex-col hover:cursor-pointer md:hidden" id="mobile-nav-btn">
-                <span class="w-8 h-1 bg-black mt-1"></span>
-                <span class="w-8 h-1 bg-black mt-1"></span>
-                <span class="w-8 h-1 bg-black mt-1"></span>
+                <span class="w-8 h-1 bg-white mt-1"></span>
+                <span class="w-8 h-1 bg-white mt-1"></span>
+                <span class="w-8 h-1 bg-white mt-1"></span>
             </div>
         </nav>
     </header>
@@ -45,8 +45,8 @@
     <!-- navbar in mobile device -->
     <div id="mobile-nav" class="w-[200px] h-screen p-5 bg-[#00BCFF] fixed top-0 right-0 translate-x-full opacity-80">
         <span class="absolute w-[30px] h-[30px] border border-white rounded-full flex items-center justify-center left-8 top-6 font-semibold text-white cursor-pointer" id="nav-close-btn"><i class="fa-solid fa-arrow-left text-white text-xl rotate-180"></i></span>
-        <div class="flex flex-col justify-center text-white mt-8">
-            <a href="#faq" class="mt-3 text-lg font-semi-bold"><i class="fa-solid fa-circle-question"></i> FAQ</a>
+        <div class="flex flex-col justify-center text-white mt-10">
+            <a href="#faq" class="mt-5 text-lg font-semi-bold"><i class="fa-solid fa-circle-question"></i> FAQ</a>
             <a href="#learn" class="mt-5 text-lg font-semi-bold"><i class="fa-solid fa-book"></i> Learn</a>
             <a href="" class="mt-5 text-lg font-semi-bold"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
         </div>
@@ -54,7 +54,7 @@
 
     <!-- banner section  -->
     <main>
-        <div class="w-[90%] mx-auto flex flex-col-reverse md:flex-row justify-between items-center gap-10 my-9">
+        <div class="w-[90%] mx-auto flex flex-col-reverse md:flex-row justify-between items-center gap-10 my-9 pt-30">
             <div class="banner-content text-center md:text-left">
                 <h1 class="text-2xl font-bold"><span class="text-[#00BCFF]">English</span> is Easy!!</h1>
                 <p class="my-5 md:w-[70%] font-bangla">আজ থেকেই আপনার ভাষা শেখার যাত্রা শুরু করুন। আপনি যদি নতুন হন অথবা আপনার দক্ষতা বাড়াতে চান, আমাদের Interactive Lessons আপনাকে নিয়ে যাবে অন্য একটি Level এ</p>
@@ -62,7 +62,7 @@
                 <br>
                 <input type="password" placeholder="Password" class="border border-gray-400 mt-4 p-2 rounded-lg w-[70%] md:w-[40%]">
                 <br>
-                <button onclick="alert('You may start learning now')" class="btn btn-primary mt-5">Get Started</button>
+                <button onclick="alert('This data is not stored anywhere. You may start learning 😎')" class="btn btn-primary mt-5 hover:bg-[#00BCFF]">Get Started</button>
             </div>
 
             <div class="banner-img">
@@ -225,7 +225,7 @@
                 </div>
             </div>
         </div>
-        <p class="text-center mt-4">&copy; <a href="https://www.linkedin.com/in/mehrababir/" target="_blank" class="hover:text-[#422AD5]">Mehrab Jalil Abir - 2025</a></p>
+        <p class="text-center mt-4">&copy; <a href="https://www.linkedin.com/in/mehrababir/" target="_blank" class="hover:text-[#422AD5]">Mehrab Jalil Abir - 2025 <i class="fa-brands fa-linkedin text-2xl hover:text-[#00BCFF]"></i></a></p>
     </footer>
 
     <script src="index.js"></script>
